@@ -8,6 +8,7 @@
     <link rel="page" href="Patient.html">
     <link rel="page" href="MainPage.html">
     <link rel="page" href="Doctor.html">
+    <link rel="page" href="PatientAfter.html">
     <title>My Page Title</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
     <main class="app">
 
         <div class="header">
-            <h2>Upload Images</h2>
+            <h2>Upload A Forward-Facing Image of Yourself: </h2>
             <div class="server-message"></div>
         </div>
 
@@ -33,18 +34,9 @@
             <input type="file" class="file" multiple="multiple" accept="image/png, image/jpeg, image/jpg" />
         </div>
 
-        <form id="saved-form">
-            <div class="header">
-                <h3>Saved In Server</h3>
-                <button type="submit">Delete</button>
-            </div>
-            <div class="saved-div"></div>
-        </form>
-
         <form id="queued-form">
             <div class="header">
-                <h3>Queued In Frontend</h3>
-                <button type="submit">Upload</button>
+                <button type="submit"><a href="PatientAfter.html">Upload</a></button>
             </div>
             <div class="queued-div"></div>
         </form>
@@ -56,14 +48,11 @@
         let queuedImagesArray = [],
           savedForm = document.querySelector("#saved-form"),
           queuedForm = document.querySelector("#queued-form"),
-          savedDiv = document.querySelector('.saved-div'),
           queuedDiv = document.querySelector('.queued-div'),
           inputDiv = document.querySelector('.input-div'),
           input = document.querySelector('.input-div input'),
-          serverMessage = document.querySelector('.server-message'),
-          deleteImages = [];
-    
-        // SAVED IN SERVER - We'll complete in part 2
+          serverMessage = document.querySelector('.server-message');
+  
     
         // QUEUED IN FRONTEND
         function displayQueuedImages() {
@@ -74,7 +63,7 @@
                         <span onclick="deleteQueuedImage(${index})">&times;</span>
                       </div>`;
           })
-          queuedDiv.innerHTML = images;
+          inputDiv.innerHTML = images;
         }
     
         function deleteQueuedImage(index) {
@@ -102,11 +91,6 @@
           }
           displayQueuedImages()
         })
-    
-        queuedForm.addEventListener("submit", (e) => {
-          e.preventDefault()
-          sendQueuedImagesToServer()
-        });    
     
         function sendQueuedImagesToServer() {
           const formData = new FormData(queuedForm);

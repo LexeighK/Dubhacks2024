@@ -43,6 +43,10 @@
     flex-direction: column;
     gap: 10px;
   }
+
+  header {
+    padding-top: 3rem;
+  }
   
   .header {
     display: flex;
@@ -89,8 +93,7 @@
     cursor: pointer;
   }
   
-  .saved-div,
-  .queued-div {
+  .input-div {
     width: 100%;
     min-height: 150px;
     display: flex;
@@ -103,8 +106,7 @@
     background-color: white;
   }
   
-  .saved-div .image,
-  .queued-div .image {
+  .input-div .image {
     height: 150px;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
@@ -112,19 +114,16 @@
     position: relative;
   }
   
-  .saved-div .image:nth-child(4n),
-  .queued-div .image:nth-child(4n) {
+  .input-div .image:nth-child(4n) {
     margin-right: 0;
   }
   
-  .saved-div .image img,
-  .queued-div .image img {
+  .input-div .image img {
     height: 100%;
     width: 100%;
   }
-  
-  .saved-div .image span,
-  .queued-div .image span {
+
+  .input-div .image span {
     position: absolute;
     top: -4px;
     right: 4px;
@@ -133,14 +132,17 @@
     color: white;
   }
   
-  .saved-div .image span:hover,
-  .queued-div .image span:hover {
+  .input-div .image span:hover {
     opacity: 0.8;
   }
   
-  .saved-div .span--hidden,
-  .queued-div .span--hidden {
+  .input-div .span--hidden {
     visibility: hidden;
+  }
+
+  button a {
+    color: white;
+    text-decoration: none;
   }
 
   nav ul {
